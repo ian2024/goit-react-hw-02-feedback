@@ -6,7 +6,7 @@ export function Statistic({
     neutral = 0,
     bad = 0,
     total = 0,
-    positivePercent = null,
+    positivePercentage = null,
 }) {
     return (
         <List>
@@ -14,15 +14,15 @@ export function Statistic({
             <Field key="stat-neut">Neutral: {neutral}</Field>
             <Field key="stat-bad">Bad: {bad}</Field>
             <Field key="stat-total">Total: {total}</Field>
-            <Field key="stat-posit">Positive Feedback: {positivePercent}%</Field>
+            <Field key="stat-posit">Positive Feedback: {positivePercentage ?? 'Please, choose your feedback'}%</Field>
         </List>
     )
 };
 
 Statistic.propTypes = {
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-    total: PropTypes.number.isRequired,
-    positivePercent: PropTypes.number.isRequired,
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+    total: PropTypes.number,
+    positivePercentage: PropTypes.number.isRequired,
 };
