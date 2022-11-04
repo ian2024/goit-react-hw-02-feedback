@@ -1,3 +1,4 @@
+import { keyboard } from '@testing-library/user-event/dist/keyboard';
 import React, { Component } from 'react';
 import { FeedbackSet, Section, Statistic, Notification } from './Compon';
 
@@ -27,22 +28,23 @@ export class App extends Component {
   }
 
   render() {
+    const total = this.countTotalFeedback();
     return (
       <>
         <Section title="Please leave a feedback">
           <FeedbackSet
-            options={this.state}
+            options={Object.keys(this.state)}
             onLeaveFeedBack={this.onFeedbackClicked}
           />
         </Section>
 
         <Section title="Statistics">
-          {this.total > 0 ? (
+          {total > 0 ? (
           <Statistic
             good={this.state.good}
             neutral={this.state.neutral}
             bad={this.state.bad}
-            total={this.countTotalFeedback()}
+            total={total}
             positivePercentage={this.countPositiveFeedbackPercentage()}
           />
           ) : (<Notification message="There is no feedback" />)}
