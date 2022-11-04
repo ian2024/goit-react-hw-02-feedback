@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { Box } from '../Box/Box.styled';
 
-export function Section({ title = '', children }) {
+export function Section({ title, children }) {
   return (
     <Box fontSize="24px" fontWeight="700" mb="10px" pt="10px" as="section">
       <Box m="0" as="h2">
